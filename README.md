@@ -41,7 +41,7 @@ while True:
 ```
 
 ## Performance Benchmark
-On a ESP32S3 the library can get values at aprox. 7.7 kHz.
+On a ESP32S3 the library can get all values together at aprox. 7.7 kHz.
 
 ## Notes
 - Adjust the `CalValues` parameter for better calibration accuracy. Higher values result in more samples being averaged.
