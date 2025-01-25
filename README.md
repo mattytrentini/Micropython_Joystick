@@ -14,8 +14,8 @@ This repository contains a simple and efficient MicroPython library for interfac
 ```python
 from joystick import Joystick
 
-# Initialize the joystick on pins 1, 2 for X, Y axes and 3 for the button.
-joystick = Joystick(PinX=1, PinY=2, PinButton=3, CalValues=100)
+# Initialize the joystick on pin 1 for X-axes, pin 2 for Y-axes and pin 3 for the button (optional).
+joystick = Joystick(1, 2, 3)
 ```
 
 ### Accessing Joystick Values
@@ -33,7 +33,7 @@ button_state = joystick.b
 import time
 from joystick import Joystick
 
-joystick = Joystick(1, 2, 3, CalValues=100)
+joystick = Joystick(1, 2, 3, CalValues=20)
 
 while True:
     print(f"X: {joystick.x}, Y: {joystick.y}, Button: {joystick.b}")
@@ -41,7 +41,7 @@ while True:
 ```
 
 ## Performance Benchmark
-On a ESP32S3 the library can get Values at aprox. 7.7 kHz.
+On a ESP32S3 the library can get values at aprox. 7.7 kHz.
 
 ## Notes
 - Adjust the `CalValues` parameter for better calibration accuracy. Higher values result in more samples being averaged.
