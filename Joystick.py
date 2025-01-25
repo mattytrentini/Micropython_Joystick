@@ -14,7 +14,7 @@ class Joystick:
             self._jx.atten(ADC.ATTN_11DB)
             self._jy.atten(ADC.ATTN_11DB)
         except AttributeError:
-            raise RuntimeError("ADC width/atten not supported on this platform.")
+            print("ADC width/atten not supported on this platform.")
         
         if PinButton:
             self._jb = Pin(PinButton, Pin.IN, Pin.PULL_UP)
