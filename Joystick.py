@@ -1,5 +1,6 @@
 from machine import ADC, Pin
 from time import sleep_ms
+from sys import platform
 from micropython import const
 
 class Joystick:
@@ -8,13 +9,11 @@ class Joystick:
         self._jx = ADC(Pin(PinX))
         self._jy = ADC(Pin(PinY))
 
-        try:
+        if platform == "esp32":
             self._jx.width(ADC.WIDTH_12BIT)
             self._jy.width(ADC.WIDTH_12BIT)
             self._jx.atten(ADC.ATTN_11DB)
             self._jy.atten(ADC.ATTN_11DB)
-        except AttributeError:
-            print("ADC width/atten not supported on this platform.")
         
         if PinButton:
             self._jb = Pin(PinButton, Pin.IN, Pin.PULL_UP)
